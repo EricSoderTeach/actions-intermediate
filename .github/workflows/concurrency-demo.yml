@@ -26,16 +26,8 @@ jobs:
   job_two:
     runs-on: ubuntu-latest
     steps:
-      - name: Disable workflow commands
-        run: |
-          echo '::warning:: This is a warning message, to demonstrate that commands are being processed.'
-          stopMarker=$(uuidgen)
-          echo "::stop-commands::$stopMarker"
-          echo '::warning:: This will NOT be rendered as a warning, because stop-commands has been invoked.'
-          echo "::$stopMarker::"
-          echo '::warning:: This is a warning again, because stop-commands has been turned off.'
       - name: Print job two start
-        run: echo "Job Two is running"
+        run: echo "### Hello world! :rocket:" >> $GITHUB_STEP_SUMMARY
 
       - name: Simulate work
         run: sleep 30
