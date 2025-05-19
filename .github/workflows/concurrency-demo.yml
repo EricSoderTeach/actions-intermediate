@@ -1,0 +1,25 @@
+name: Concurrency Demo
+
+on:
+    workflow_dispatch:
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  job_one:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Print job one start
+        run: echo "Job One is running"
+      - name: Simulate work
+        run: sleep 30
+
+  job_two:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Print job two start
+        run: echo "Job Two is running"
+      - name: Simulate work
+        run: sleep 30
