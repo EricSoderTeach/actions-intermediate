@@ -11,11 +11,14 @@ jobs:
   job_one:
     runs-on: ubuntu-latest
     steps:
-      - name: Print job one start
-        run: echo "Job One is running"
-      - name: Simulate work
-        run: sleep 30
-
+      - uses: actions/checkout@v4
+    
+      - name: List files in the repository
+        run: |
+          echo "::group::The repository ${{ github.repository }} contains the following files"
+          tree
+          echo "::endgroup::"
+          
   job_two:
     runs-on: ubuntu-latest
     steps:
