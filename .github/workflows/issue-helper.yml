@@ -3,6 +3,9 @@ name: Issue Reply
 on:
   issues:
     types: [labeled]
+permissions:
+  contents: write
+  issues: write
 
 jobs:
   reply-helper:
