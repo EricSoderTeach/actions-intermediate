@@ -1,9 +1,10 @@
 name: Matrix Lab
 on:
-  workflow_dispatch:
+  workflow_call:
 jobs:
   example_matrix:
     strategy:
+      max-parallel: 2
       matrix:
         os: [windows-latest, ubuntu-latest]
         node: [14, 16]
